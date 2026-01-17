@@ -8,7 +8,7 @@ library(stringr)
 subset_df <- df %>%
   filter(
     !is.na(datum),
-    between(year(datum), 2014, 2023),
+    between(year(datum), 2014, 2022),
     !str_detect(str_to_lower(zaehlstelle), "arnulf")
   )
 
