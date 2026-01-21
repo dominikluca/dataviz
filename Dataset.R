@@ -4,12 +4,18 @@ library(stringr)
 library(purrr)
 library(lubridate)
 
+# Description of Code
+
+# Merge + clean yearly CSV datasets:
+# - Load all CSVs from "Yearly Datasets" as character data to avoid type conflicts
+# - Standardize column names (lowercase, '-' -> '.') and trim whitespace
+# - Parse the 'datum' column across multiple date formats (YYYY-MM-DD, DD.MM.YYYY, etc.)
+# - Normalize and parse start/end times, and convert selected columns to numeric
+# - Combine all files into one dataframe (df) and keep the origin in 'source_file'
+
+
 files <- list.files("Yearly Datasets", pattern="\\.csv$", full.names = TRUE)
 
-# Merging all CSV files together
-
-
-# Enabling different date formats as date format changes from 2023 ongoing to avoid NA values when merging CSVs
 parse_datum_multi <- function(x) {
   x <- str_trim(x)
   x <- na_if(x, "")
@@ -40,10 +46,9 @@ df <- files %>%
   ) %>%
   bind_rows(.id = "source_file")
 
-# Parsing of Times and Numbers
+
 df <- df %>%
   mutate(
-    # Uhrzeiten: "00.00" -> "00:00"
     uhrzeit_start = str_replace(uhrzeit_start, "^(\\d{1,2})\\.(\\d{2})$", "\\1:\\2"),
     uhrzeit_ende  = str_replace(uhrzeit_ende,  "^(\\d{1,2})\\.(\\d{2})$", "\\1:\\2"),
     uhrzeit_start = str_replace(uhrzeit_start, "^(\\d):", "0\\1:"),
@@ -59,5 +64,5 @@ df <- df %>%
   )
 
 
-View(df)
+view(df)
 
