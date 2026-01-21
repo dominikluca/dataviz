@@ -21,7 +21,7 @@ df_sun_eng <- subset_df %>%
                     breaks = seq(0, 16, by = 2), 
                     include.lowest = TRUE, 
                     right = FALSE,
-                    labels = c("0-2h", "2-4h", "4-6h", "6-8h", "8-10h", "10-12h", "12-14h", "14-16h"))
+                    labels = c("0-2", "2-4", "4-6", "6-8", "8-10", "10-12", "12-14", "14-16"))
   ) %>%
   filter(!is.na(sun_group)) %>%
   group_by(sun_group, zaehlstelle) %>%
@@ -43,14 +43,14 @@ ggplot(df_sun_eng, aes(y = sun_group, x = avg_daily_trips, fill = zaehlstelle)) 
   scale_fill_viridis_d(option = "plasma", direction = -1, name = "Station") +
   
   # Formatting X-axis to show 5k, 10k, etc.
-  scale_x_continuous(labels = function(x) paste0(x / 1000, "k")) +
+  scale_x_continuous(labels = function(x) paste0(x / 1000)) +
   
   # Labels and removing title/caption as requested
   labs(
     title = NULL,
     subtitle = NULL,
-    x = "Average Daily Trips",
-    y = "Daily Sunshine Hours",
+    x = "Average Daily Trips (in thousands)",
+    y = "Daily Sunshine (in hours)",
     caption = NULL
   ) +
   

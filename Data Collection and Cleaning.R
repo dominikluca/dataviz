@@ -6,7 +6,7 @@ library(lubridate)
 
 files <- list.files("Rad Daten jährlich", pattern="\\.csv$", full.names = TRUE)
 
-# 1) Merging all CSV files together
+# Merging all CSV files together
 
 
 # Enabling different date formats as date format changes from 2023 ongoing to avoid NA values when merging CSVs
@@ -59,6 +59,5 @@ df <- df %>%
   )
 
 
-view(df)
+View(df)
 
-# 2) Cleaning the Data
