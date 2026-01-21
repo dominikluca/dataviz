@@ -49,3 +49,4 @@ ggplot(plot_data, aes(x = monat_datum, y = zaehlstelle)) +
     panel.grid.minor.x = element_blank(),
     panel.grid.major.y = element_blank()
   )
+

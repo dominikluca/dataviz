@@ -4,7 +4,7 @@ library(stringr)
 library(purrr)
 library(lubridate)
 
-files <- list.files("Rad Daten jährlich", pattern="\\.csv$", full.names = TRUE)
+files <- list.files("Yearly Datasets", pattern="\\.csv$", full.names = TRUE)
 
 # Merging all CSV files together
 
