@@ -8,7 +8,7 @@ Munich has a growing cycling culture, but how local usage patterns shift under v
 
 ### Research Question
 
-> "How do variations in weather conditions—especially sunshine hours and rainfall—influence daily cycling trip counts in Munich, and how can a resilience index (rain/sun ratio) help quantify the robustness of cycling activity under changing weather?" 
+> "How do variations in weather conditions influence daily cycling trips in Munich, and how can we quantify the robustness of cycling activity under changing weather?" 
 > 
 > 
 
