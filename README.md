@@ -65,7 +65,12 @@ The **Resilience Index** is defined as the ratio of average trips on rainy days 
 
 * **Sunny Day**: Days with >6 hours of sunshine and zero rain.
 
-
+**How to interpret the value**:
+* **= 1.0** (Same average trips on rainy and sunny days)
+ 
+* **< 1.0** (Fewer average trips on rainy days)
+ 
+* **> 1.0** (More average trips on rainy days)
 
 ## Key Findings
 
