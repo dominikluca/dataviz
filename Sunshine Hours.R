@@ -10,7 +10,7 @@ library(stringr)
 # - Filter the dataset to high quality subset: years 2014–2022 and exclude station matching "arnulf"
 # - Convert sunshine hours and total counts to numeric
 # - Bin daily sunshine into 2-hour groups (0–2, 2–4, …, 14–16)
-# - Compute the average daily trips per sunshine group and counting station
+# - Compute the average daily trips per sunshine group and counting station over the period of the subset
 # - Reorder stations by overall volume to improve readability
 # - Plot a horizontal grouped bar chart with a high contrast color palette and cleaned axis formatting for good readability
 
@@ -55,7 +55,7 @@ ggplot(df_sun_eng, aes(y = sun_group, x = avg_daily_trips, fill = zaehlstelle)) 
   scale_x_continuous(labels = function(x) paste0(x / 1000)) +
   
   labs(
-    title = "Daily Sunshine vs. Average Daily Trips",
+    title = "Daily Sunshine vs. Average Daily Trips (2014-2022)",
     subtitle = NULL,
     x = "Average Daily Trips (in thousands)",
     y = "Daily Sunshine (in hours)",
@@ -77,5 +77,5 @@ ggplot(df_sun_eng, aes(y = sun_group, x = avg_daily_trips, fill = zaehlstelle)) 
     
     panel.grid.major.y = element_blank(),
     panel.grid.minor = element_blank(),
-    panel.grid.major.x = element_line(color = "grey90", linetype = "dashed")
+    panel.grid.major.x = element_line(color = "darkgrey", linetype = "dashed")
   )
